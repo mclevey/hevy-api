@@ -80,7 +80,7 @@ class PutWorkoutRequest(BaseRequest):
         return "PUT"
 
     def get_body(self) -> dict[str, Any]:
-        return self.workout.model_dump()
+        return self.workout.model_dump(mode="json")
 
 
 class PostWorkoutRequest(BaseRequest):
@@ -95,7 +95,7 @@ class PostWorkoutRequest(BaseRequest):
         return "POST"
 
     def get_body(self) -> dict[str, Any]:
-        return self.workout.model_dump()
+        return self.workout.model_dump(mode="json")
 
 
 class GetRoutinesRequest(BaseRequest):
@@ -136,7 +136,7 @@ class PutRoutineRequest(BaseRequest):
         return "PUT"
 
     def get_body(self) -> dict[str, Any]:
-        return self.routine.model_dump()
+        return self.routine.model_dump(mode="json")
 
 
 class PostRoutineRequest(BaseRequest):
@@ -151,4 +151,4 @@ class PostRoutineRequest(BaseRequest):
         return "POST"
 
     def get_body(self) -> dict[str, Any]:
-        return self.routine.model_dump()
+        return self.routine.model_dump(mode="json")

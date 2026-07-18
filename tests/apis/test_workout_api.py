@@ -383,10 +383,10 @@ class TestWorkoutAPI:
         post_request = PostWorkoutRequest(sample_workout)
         assert post_request.get_endpoint() == "/v1/workouts"
         assert post_request.get_method() == "POST"
-        assert post_request.get_body() == sample_workout.model_dump()
+        assert post_request.get_body() == sample_workout.model_dump(mode="json")
 
         # Test PutWorkoutRequest
         put_request = PutWorkoutRequest("workout-123", sample_workout)
         assert put_request.get_endpoint() == "/v1/workouts/workout-123"
         assert put_request.get_method() == "PUT"
-        assert put_request.get_body() == sample_workout.model_dump()
+        assert put_request.get_body() == sample_workout.model_dump(mode="json")

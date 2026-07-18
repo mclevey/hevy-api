@@ -405,13 +405,13 @@ class TestRoutineAPI:
         post_request = PostRoutineRequest(sample_routine)
         assert post_request.get_endpoint() == "/v1/routines"
         assert post_request.get_method() == "POST"
-        assert post_request.get_body() == sample_routine.model_dump()
+        assert post_request.get_body() == sample_routine.model_dump(mode="json")
 
         # Test PutRoutineRequest
         put_request = PutRoutineRequest("routine-123", sample_routine)
         assert put_request.get_endpoint() == "/v1/routines/routine-123"
         assert put_request.get_method() == "PUT"
-        assert put_request.get_body() == sample_routine.model_dump()
+        assert put_request.get_body() == sample_routine.model_dump(mode="json")
 
     # Edge cases and boundary tests
     @patch("requests.Session.request")
